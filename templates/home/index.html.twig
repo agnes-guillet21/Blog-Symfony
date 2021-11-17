@@ -19,7 +19,6 @@
                             <h3>{{ listPost.title }}</h3>
                             <p> {{ listPost.category.name }}</p>
                         </div>
-
                         <div class="card-body p-4 ">
                             <p class="card-text">{{ listPost.content | slice(0, 150)}}[..]</p>
                             <a class="readMore" href="post_details.php?idPost=<?=$dataPosts['id'];?>"> En lire Plus</a>
