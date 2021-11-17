@@ -1,0 +1,56 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <title> Potins.com </title>
+
+</head>
+<body>
+<header class="navbar navbar-expand-lg navbar-dark bg-primary d-flex justify-content-between">
+    <a href="index.php">Potins.com</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+        <div class="container-fluid ">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarColor01">
+                <ul class="navbar-nav p-3 ">
+                    <li class="nav-item">
+
+                        <i class="fas fa-pen-nib"></i>
+                        <a class="nav-link p-2" href="admin.php">admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+    {% block body %}
+    <title> {% block title %}{% endblock %}</title>
+
+    {% endblock %}
+<footer class="navbar navbar-dark bg-dark text-center">
+    <img class="mx-auto" src="img/logo-3wa.png" alt="3W Academy" width="50">
+    <p class="navbar-text w-100 m-0 small">
+        <strong><a href="https://3wa.fr/">&copy; 3W Academy</a> - PHP : Module 2 - Formation Développeur WEB - Tous&nbsp;droits&nbsp;réservés</strong><br>
+        Cet exercice est mis à disposition des stagiaires dans le cadre exclusif de leur apprentissage
+    </p>
+</footer>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="js/owl.carousel.min.js"></script>
+
+</body>
+</html>

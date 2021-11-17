@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <main>
+        <header class="jumbotron main-header">
+            <h1 class="display-4"><?= $title?></h1>
+            <p class="lead display-6">{% block title %}Les derniers articles{% endblock %}</p>
+        </header>
+
+        <div class="container-fluid">
+            {% for listPost in listPosts %}
+            <div class="row  ">
+
+                <div class="col-md-4 mb-5">
+                    <div class="card border-warning h-100">
+                        <div class="card-header p-4">
+                            <h3>{{ listPost.title }}</h3>
+                            <p> {{ listPost.category.name }}</p>
+                        </div>
+
+                        <div class="card-body p-4 ">
+                            <p class="card-text">{{ listPost.content | slice(0, 150)}}[..]</p>
+                            <a class="readMore" href="post_details.php?idPost=<?=$dataPosts['id'];?>"> En lire Plus</a>
+                        </div>
+
+                        <div class="card-footer  pt-3 border">
+                            <p> {{ listPost.author.firstname}} {{ listPost.author.lastname}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}
