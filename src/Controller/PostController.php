@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Author;
 use App\Entity\Category;
 use App\Entity\Post;
+use App\Repository\CommentRepository;
+use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,33 +17,26 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PostController extends AbstractController
 {
-    /**
-     * @Route("/post", name="posts")
-     */
-    public function index(): Response
-    {
-        return $this->render('post/index.html.twig', [
-            'controller_name' => 'PostController',
-        ]);
-    }
+
 
     /**
-     * @param EntityManagerInterface $entityManager
-     * @Route(path="/list",name="list")
+     *
+     * @Route(path="/detail/{id}", requirements={"id"="\d+"}, name="/detail",methods={"GET","POST"}, defaults={1})
      */
-    public function getListPost(EntityManagerInterface $entityManager){
-        $posts = $entityManager->getRepository(Post::class)->findAll();
-        var_dump($posts);
-        exit();
-        $category = $entityManager->getRepository(Category::class)->findAll();
-        $author = $entityManager->getRepository(Author::class)->findAll();
-        return $this->render('home/index.html.twig',[
-            'listPosts' => $posts,
-            'category' => $category,
-            'author' => $author
+    public function getDetailPost( PostRepository $postRepository, int $id){
+        $postDetail = $postRepository->find($id);
+
+        //verifications:
+        if (is_null($postDetail)){
+            throw $this->createNotFoundException();
+        }
+        if($id<1){
+            throw $this->createNotFoundException();
+        }
+        return $this->render('post/detail_post.html.twig',
+        [
+            "postDetail" => $postDetail
         ]);
-        var_dump($posts);
-        var_dump($category);
-        var_dump($author);
+
     }
 }

@@ -21,7 +21,7 @@ class HomeController extends AbstractController
         $posts = $entityManager->getRepository(Post::class)->findAll();
 
         return $this->render('home/index.html.twig', [
-            'listPosts' => $posts,
+            'listPosts' => $posts, // cle 'listPost' / valeur :la variable
 
         ]);
     }

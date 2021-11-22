@@ -125,7 +125,7 @@ main .card:hover{
 }
 
 
-.upadate, .delete, .insert{
+.update, .delete, .insert{
     transform: scale(1);/* on remt un transform avc la valeur de depart pr le retour de la transition*/
     transition: transform 0.3s ease;
 }
