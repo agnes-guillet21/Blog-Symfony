@@ -1,21 +1,44 @@
 {% extends './base.html.twig' %}
-{#
+
 
     {% block title %}
         {{ postDetail.title }} | {{ parent() }}
     {% endblock %}
-#}
+
     {% block body %}
-        <div class="container">
-            <h2>{{ postDetail.title }}</h2>
-           <article>
-               <p>{{ postDetail.content }}</p>
-           </article>
+        <main>
+            <div class="container">
+
+                <section class="post">
+                    <h2 class="post_title"> {{ postDetail.title }}</h2>
+                    <article>
+                        <p>{{ postDetail.content }}</p>
+                    </article>
+                </section>
 
 
-            <article>
+                <section class="comment">
+                    <h2> Commentaires</h2>
+                    <article>
+                        {% for listComments in  postDetail.comments %}
+                            <p>{{ listComments.nickname }} le  {{ listComments.createdAt | date("d/m/Y")  }}</p>
+                            <p>{{ listComments.content }}</p>
+                        {% endfor %}
+                    </article>
+                </section>
 
-                {{ postDetail.comments}}
-            </article>
-        </div>
+
+                <section>
+                    <h3>Ajouter un commentaire</h3>
+                        {#decomposition  #}
+                    {{ form_start(commentForm) }} {# //balise d ouverture du formulaire = form #}
+                    {{  form_widget(commentForm) }}
+                    <button>Envoyer</button>
+                    {{ form_end(commentForm) }}
+
+                </section>
+            </div>
+
+        </main>
+
     {% endblock %}

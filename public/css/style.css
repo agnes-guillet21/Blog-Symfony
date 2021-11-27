@@ -64,19 +64,7 @@ main header h1{
     margin: 2rem 1rem;
     padding: 1rem 1rem;
 }
-/*
-main .card{
-    transform: scale(1); on remt un transform avc la valeur de depart pr le retour de la transition
-    transition: transform 0.3s ease;
-}
 
-main .card:hover{
-    transform: scale(1.03);
-    z-index: 1;  se met par dessus un autre element
-    transition: transform 0.2s ease;  ease => fonction tte faite
-
-}
-*/
 .card-text{
     /*Display / Box Model*/
     padding: 1rem 1rem;
@@ -105,42 +93,14 @@ main .card:hover{
 /****************************************************
               post_details
 *****************************************************/
-.article img {
-    width:20%;
-    margin-top: 2rem;
-
-}
-.list_comments h3{
-
-    /* text*/
+main .post_title{
     text-align: center;
-
 }
+
 /****************************************************
                 Admin.php
 ****************************************************/
 
-.nav__admin{
-    height: 100vh;
-}
-
-
-.update, .delete, .insert{
-    transform: scale(1);/* on remt un transform avc la valeur de depart pr le retour de la transition*/
-    transition: transform 0.3s ease;
-}
-
-.insert:hover,
-.update:hover,
-.delete:hover
-{
-    transform: scale(1.01);
-    transition: transform ease;
-    /* text*/
-    font-size: 1.1rem;
-    font-weight: bolder ;
-
-}
 /****************************************************
                  footer
 *****************************************************/
