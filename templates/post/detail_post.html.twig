@@ -31,8 +31,10 @@
                 <section>
                     <h3>Ajouter un commentaire</h3>
                         {#decomposition  #}
-                    {{ form_start(commentForm) }} {# //balise d ouverture du formulaire = form #}
+                    {{ form_start(commentForm) }}{# //balise d ouverture du formulaire = form #}
+
                     {{  form_widget(commentForm) }}
+
                     <button>Envoyer</button>
                     {{ form_end(commentForm) }}
 

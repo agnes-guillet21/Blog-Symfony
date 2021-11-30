@@ -16,9 +16,12 @@ class AddCommentsType extends AbstractType
     {
         $builder
             ->add('nickname',TextType::class, [
-                'label' => 'Pseudo'
+                'label' => 'Pseudo',
+                'required'=>false
             ])
-            ->add('content')
+            ->add('content',TextType::class, [
+                'required'=>false
+            ])
 
         ;
     }
