@@ -1,36 +1,194 @@
 {% extends 'base.html.twig' %}
 
+{% block  carroussel %}
+<!-- Main carousel -->
+<div class="mainCarousel mainCarousel-1">
+    <div class="container">
+        <div class="c-row">
+            <div class="js-main-carousel-1">
+                <article class="i article">
+                    <a href="post-detail-standard.html" title="#">
+                        <img src="{{ asset('tmp/580x550-1.jpg') }}" alt="#" width="580" height="550" class="img-responsive">
+                    </a>
+                    <div class="c">
+                        <h2 class="title">
+                            <a href="post-detail-standard.html" title="#">We are all apprentices in a craft where no one ever becomes a master.</a>
+                        </h2>
+                        <div class="info">
+                            <a href="post-detail-standard.html" title="#">Creative</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="i article">
+                    <a href="post-detail-standard.html" title="#">
+                        <img src="{{ asset('tmp/580x550-2.jpg') }}" alt="#" width="580" height="550" class="img-responsive">
+                    </a>
+                    <div class="c">
+                        <h2 class="title">
+                            <a href="post-detail-standard.html" title="#">I have no special talent. I am only passionately curious.</a>
+                        </h2>
+                        <div class="info">
+                            <a href="post-detail-standard.html" title="#">Lifestyle</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="i article">
+                    <a href="post-detail-standard.html" title="#">
+                        <img src="{{ asset('tmp/580x550-3.jpg') }}" alt="#" width="580" height="550" class="img-responsive">
+                    </a>
+                    <div class="c">
+                        <h2 class="title">
+                            <a href="post-detail-standard.html" title="#">There is no sincerer love than the love of food.</a>
+                        </h2>
+                        <div class="info">
+                            <a href="post-detail-standard.html" title="#">Food</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="i article">
+                    <a href="post-detail-standard.html" title="#">
+                        <img src="{{ asset('tmp/580x550-4.jpg') }}" alt="#" width="580" height="550" class="img-responsive">
+                    </a>
+                    <div class="c">
+                        <h2 class="title">
+                            <a href="post-detail-standard.html" title="#">And the most unusual and surrealistic place in New York is Central Park.</a>
+                        </h2>
+                        <div class="info">
+                            <a href="post-detail-standard.html" title="#">Travel</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
 
 {% block body %}
-    <div class="container">
-        <main>
-            <header class="jumbotron main-header">
-                <h1 class="display-4"><?= $title?></h1>
-                <p class="lead display-6">{% block title %}Les derniers articles{% endblock %}</p>
-            </header>
+    {% for listPost in listPosts %}
+        <section>
+            <article class="article">
+                <div class="box">
+                    <h3 class="title">{{ listPost.title }}</h3>
+                    <div class="info">
+                        <div> {{ listPost.author.firstname}} {{ listPost.author.lastname}} </div>
+                        <div> {{ listPost.category.name }}</div>
+                    </div>
+                    <p>
+                        {{ listPost.content | slice(0, 150)}}[..]
+                    </p>
+                    <div class="btns text-center">
+                        <a class="btn btn-primary" href="{{path('post/detail',{'id': listPost.id}) }}">
+                            <span>
+                                En lire Plus
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+    {% endfor %}
+            <!-- Pagination load more -->
+            <div class="paginations pagination-loadmore hoverExtend active">
+                <a href="#" title="#">Load more</a>
+            </div>
 
-            <div class="container-fluid">
-                {% for listPost in listPosts %}
-                <div class="row  ">
-                    <div class="col-md-4 mb-5">
-                        <div class="card border-warning h-100">
-                            <div class="card-header p-4">
-                                <h3>{{ listPost.title }}</h3>
-                                <p> {{ listPost.category.name }}</p>
-                            </div>
-                            <div class="card-body p-4 ">
-                                <p class="card-text">{{ listPost.content | slice(0, 150)}}[..]</p>
-                                <a class="readMore" href="{{path('post/detail',{'id': listPost.id}) }}"> En lire Plus</a>
-                            </div>
+            <!-- Pagination previous / next -->
+            <div class="paginations pagination-prevnext">
+                <div class="row">
+                    <div class="col-xs-4 prev hoverExtend active">
+                        <a href="#" title="#">Previous</a>
+                    </div>
+                    <div class="col-xs-4 info hidden-xs">Page 01 of 12</div>
+                    <div class="col-xs-4 col-xs-offset-4 col-sm-offset-0 next hoverExtend active text-right">
+                        <a href="#" title="#">Next</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                            <div class="card-footer  pt-3 border">
-                                <p> {{ listPost.author.firstname}} {{ listPost.author.lastname}}</p>
-                            </div>
+{% endblock %}
+
+{% block aside %}
+
+    <!-- Aside -->
+    <aside class="col-xs-12 col-sm-4 aside">
+        <div class="row">
+            <!-- About me box -->
+            <div class="col-xs-12 i">
+                <div class="box aboutMeBox">
+                    <div class="c">
+                        <div class="name">@Agnès</div>
+                        <p class="info">Developpeuse de truc secret </p>
+
+                        <div class="btns">
+                            <a href="page-about-me.html" title="#" class="btn btn-color-full"><span>Message</span></a>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
             </div>
-        </main>
-    </div>
+
+            <!-- Socials -->
+            <div class="col-xs-12 i">
+                <div class="box socials">
+                    <a href="#" title="#" class="i"><i class="fa fa-facebook"></i></a>
+                    <a href="#" title="#" class="i"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" title="#" class="i"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- to do faire une requete pour recuperer tte les categories et les afficher ici-->
+
+            <!-- Categories -->
+            <div class="col-xs-12 i">
+                <div class="box categories">
+                    <h2>Categories</h2>
+
+                    <div class="c">
+                        <div class="i">
+                            <a href="page-category.html" title="#" class="clearfix">
+                                <span class="title">Creative</span>
+                                <span class="count">(68)</span>
+                            </a>
+                        </div>
+                        <div class="i">
+                            <a href="page-category.html" title="#" class="clearfix">
+                                <span class="title">Fashion</span>
+                                <span class="count">(35)</span>
+                            </a>
+                        </div>
+                        <div class="i">
+                            <a href="page-category.html" title="#" class="clearfix">
+                                <span class="title">Architecture</span>
+                                <span class="count">(12)</span>
+                            </a>
+                        </div>
+                        <div class="i">
+                            <a href="page-category.html" title="#" class="clearfix">
+                                <span class="title">Music</span>
+                                <span class="count">(27)</span>
+                            </a>
+                        </div>
+                        <div class="i">
+                            <a href="page-category.html" title="#" class="clearfix">
+                                <span class="title">Nature</span>
+                                <span class="count">(08)</span>
+                            </a>
+                        </div>
+                        <div class="i">
+                            <a href="page-category.html" title="#" class="clearfix">
+                                <span class="title">Lifestyle</span>
+                                <span class="count">(14)</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="btns text-center">
+                        <a href="page-category.html" title="#" class="btn"><span>All categories</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
 {% endblock %}
