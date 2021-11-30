@@ -93,7 +93,7 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator implements Passwor
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('admin_home'));
+        return new RedirectResponse($this->urlGenerator->generate('home'));
 
     }
 
