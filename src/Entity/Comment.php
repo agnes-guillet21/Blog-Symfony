@@ -25,6 +25,7 @@ class Comment
      *      max=255,
      *     minMessage = "Votre pseudo doit faire au moins {{ limit }} lettre ",
      *      maxMessage = "Votre pseudo doit faire moins de  {{ limit }} lettres "
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $nickname;
