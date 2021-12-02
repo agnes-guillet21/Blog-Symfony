@@ -62,8 +62,8 @@
                 <nav id="navbar" class="collapse navbar-collapse">
                     <!-- Main navigation -->
                     <ul class="nav navbar-nav navigation">
-                        <li class="hoverExtend active"><a href="index.html.twig" title="#">Home</a></li>
-                        <li class="hoverExtend"><a href="page-about-me.html" title="#">About</a></li>
+                        <li class="hoverExtend active"><a href="{{path('home')}}" title="home">Home</a></li>
+                        <li class="hoverExtend"><a href="page-about-me.html" title="#">About Me</a></li>
                         <li class="hoverExtend"><a href="page-contact-me.html" title="#">Contact</a></li>
                     </ul>
 
@@ -85,25 +85,16 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="dropdown onHover hoverExtend active language">
-                            <a href="#" title="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">EN</a>
-                            <!-- Language dropdown -->
-                            <div class="dropdown-menu lang" role="menu">
-                                <ul>
-                                    <li><a href="#" title="#">EN</a></li>
-                                    <li><a href="#" title="#">ES</a></li>
-                                    <li><a href="#" title="#">FR</a></li>
-                                    <li><a href="#" title="#">RU</a></li>
-                                    <li><a href="#" title="#">PT</a></li>
-                                    <li><a href="#" title="#">DE</a></li>
-                                </ul>
-                            </div>
+                        <li>
+                            <a href="#" title="#" class="dropdown-toggle"  role="button" aria-expanded="false">EN</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_login') }}" title="login" class="dropdown-toggle" role="button" aria-expanded="false">Login</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
-
         <!-- Logo -->
         <div class="logoWrap">
             <div class="container">
@@ -115,24 +106,18 @@
                 </h1>
             </div>
         </div>
-
         <!-- Categories navigation -->
-        <nav class="categoriesNavigation">
-            <div class="container">
-                <ul>
-                    <li class="hoverExtend active"><a href="index.html.twig" title="#">All</a></li>
-                    <li class="hoverExtend"><a href="template-personal.html" title="#">Personal</a></li>
-                </ul>
-            </div>
-        </nav>
+        {% block navigation  %}
+        {% endblock %}
     </header>
-
     <!-- fin du header -->
 
+    <!-- Carroussel -->
+    {% block carroussel %}
+    {% endblock %}
 
-{% block carroussel %}
-{% endblock %}
 
+    <!-- Config Message Add Flash -->
     {% for label, message in app.flashes %}
         {% for message in messages %}
             <div class="flash flash-{{ label }}">

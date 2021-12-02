@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
+
+{% block navigation  %}
+    <nav class="categoriesNavigation">
+        <div class="container">
+            <ul>
+                <li class="hoverExtend active"><a href="index.html.twig" title="#">All Post</a></li>
+                <li class="hoverExtend"><a href="template-personal.html" title="#">Categories</a></li>
+                <li class="hoverExtend"><a href="template-personal.html" title="#">Authors</a></li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+
+
+
 {% block  carroussel %}
 <!-- Main carousel -->
 <div class="mainCarousel mainCarousel-1">
@@ -119,11 +135,14 @@
             <div class="col-xs-12 i">
                 <div class="box aboutMeBox">
                     <div class="c">
-                        <div class="name">@Agnès</div>
-                        <p class="info">Developpeuse de truc secret </p>
+                        <p class="name">@Agnès</p>
+                        <br>
+                        <p class="info">Développeuse de truc secret en PHP</p>
+                        <p class="info"> Le "Ctl + c / Ctl + v "  est ma devise </p>
+                        <p class="info"> Pour en savoir plus c'est par la </p>
 
                         <div class="btns">
-                            <a href="page-about-me.html" title="#" class="btn btn-color-full"><span>Message</span></a>
+                            <a href="{{ path('about') }}" title="#" class="btn btn-color-full"><span>About me</span></a>
                         </div>
                     </div>
                 </div>
@@ -152,40 +171,29 @@
                                 <span class="count">(68)</span>
                             </a>
                         </div>
+                    </div>
+
+                    <div class="btns text-center">
+                        <a href="page-category.html" title="#" class="btn"><span>All categories</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 i">
+                <div class="box authors">
+                    <h2>Authors</h2>
+
+                    <div class="c">
                         <div class="i">
                             <a href="page-category.html" title="#" class="clearfix">
-                                <span class="title">Fashion</span>
-                                <span class="count">(35)</span>
-                            </a>
-                        </div>
-                        <div class="i">
-                            <a href="page-category.html" title="#" class="clearfix">
-                                <span class="title">Architecture</span>
-                                <span class="count">(12)</span>
-                            </a>
-                        </div>
-                        <div class="i">
-                            <a href="page-category.html" title="#" class="clearfix">
-                                <span class="title">Music</span>
-                                <span class="count">(27)</span>
-                            </a>
-                        </div>
-                        <div class="i">
-                            <a href="page-category.html" title="#" class="clearfix">
-                                <span class="title">Nature</span>
-                                <span class="count">(08)</span>
-                            </a>
-                        </div>
-                        <div class="i">
-                            <a href="page-category.html" title="#" class="clearfix">
-                                <span class="title">Lifestyle</span>
-                                <span class="count">(14)</span>
+                                <span class="title">author </span>
+                                <span class="count">(68)</span>
                             </a>
                         </div>
                     </div>
 
                     <div class="btns text-center">
-                        <a href="page-category.html" title="#" class="btn"><span>All categories</span></a>
+                        <a href="page-category.html" title="#" class="btn"><span>All authors</span></a>
                     </div>
                 </div>
             </div>

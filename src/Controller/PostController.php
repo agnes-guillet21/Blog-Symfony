@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Category;
 use App\Entity\Comment;
 
 use App\Entity\Post;
@@ -22,7 +23,7 @@ class PostController extends AbstractController
      *
      * @Route(path="/detail/{id}", requirements={"id"="\d+"}, name="/detail",methods={"GET","POST"}, defaults={1})
      */
-    public function getDetailPost( PostRepository $postRepository,EntityManagerInterface $entityManager ,int $id,Post $post, Request $request){
+    public function getDetailPost( PostRepository $postRepository,EntityManagerInterface $entityManager ,int $id,Post $post, Request $request, Category $category){
         $postDetail = $postRepository->find($id);
 
         //verifications:
@@ -66,5 +67,10 @@ class PostController extends AbstractController
                 "postDetail" => $postDetail,
                 "commentForm" => $commentForm->createView()
             ]);
+
+
+
+
+
     }
 }

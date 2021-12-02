@@ -1,46 +1,140 @@
 {% extends 'base.html.twig' %}
 
 
+
+   {% block navigation  %}
+
+        {#       TODO    faire une requete pour recuperer toutes les categories  #}
+       <nav class="categoriesNavigation">
+           <div class="container">
+               <ul>
+                   <li class="hoverExtend active"><a href="{{path('home')}}" title="home">Home</a></li>
+                   <li class="hoverExtend"><a href="template-personal.html" title="#">Personal</a></li>
+                   <li class="hoverExtend"><a href="template-magazine.html" title="#">News magazine</a></li>
+                   <li class="hoverExtend"><a href="template-design.html" title="#">Design inspiration</a></li>
+                   <li class="hoverExtend"><a href="template-recipe.html" title="#">Recipe</a></li>
+                   <li class="hoverExtend"><a href="template-craft.html" title="#">Craft</a></li>
+                   <li class="hoverExtend"><a href="template-travel.html" title="#">Travel</a></li>
+               </ul>
+           </div>
+       </nav>
+   {% endblock %}
+
     {% block title %}
         {{ postDetail.title }} | {{ parent() }}
     {% endblock %}
 
+
     {% block body %}
-        <main>
-            <div class="container">
+        <section>
 
-                <section class="post">
-                    <h2 class="post_title"> {{ postDetail.title }}</h2>
-                    <article>
-                        <p>{{ postDetail.content }}</p>
-                    </article>
-                </section>
+            <article class="article articleDetail">
 
+                <div class="box">
+                    <h3 class="title">{{ postDetail.title }}</h3>
+                    <div class="info">
+                        <div>
+                            <span class="date">March 22, <span data-current-year></span></span>
+                        </div>
+                        <div>by <a href="#" title="#">Themees</a></div>
+                        <div>in <a href="#" title="#">Music</a></div>
+                        <div>1 min read</div>
+                    </div>
+                    <div class="rte js-imagelightbox">
+                        <p class="drop-cap-1">
+                            {{ postDetail.content |nl2br }}
+                        </p>
+                    </div>
+                    <footer class="footer">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6 moreInfo">
+                                <div><span><i class="fa fa-comments"></i> {{postDetail.comments | length }}    </span> Comments</div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+        </section>
 
-                <section class="comment">
-                    <h2> Commentaires</h2>
-                    <article>
-                        {% for listComments in  postDetail.comments %}
-                            <p>{{ listComments.nickname }} le  {{ listComments.createdAt | date("d/m/Y")  }}</p>
-                            <p>{{ listComments.content }}</p>
-                        {% endfor %}
-                    </article>
-                </section>
-
-
-                <section>
-                    <h3>Ajouter un commentaire</h3>
-                        {#decomposition  #}
-                    {{ form_start(commentForm) }}{# //balise d ouverture du formulaire = form #}
-
-                    {{  form_widget(commentForm) }}
-
-                    <button>Envoyer</button>
-                    {{ form_end(commentForm) }}
-
-                </section>
+        <section class="section_comments_detailPost">
+            {#todo  css faire un display pour mettre cote a cote#}
+            <!-- Comment -->
+            <div class="list_Comments_postDetails">
+                    {% for listComments in  postDetail.comments %}
+                        <div class="articleCommentsListing">
+                            <div class="box">
+                                <header>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-lg-8 commentInfo">
+                                            <span class="name">{{ listComments.nickname }} </span>
+                                            <span class="time info">le  {{ listComments.createdAt | date("d/m/Y")  }}</span>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="c">
+                                    <p> {{ listComments.content }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
             </div>
 
-        </main>
+            {#Todo faire la mise en forme des commentaires #}
+            <div class="articleComments box">
+                <div class="row">
+                    {{ form_start(commentForm) }}{# //bal ise d ouverture du formulaire = form #}
+
+                    <h2>Comments</h2>
+                    <div>
+                        <div class="col-xs-12 col-sm-4 i">
+                            {{  form_widget(commentForm) }}
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="btns">
+                                <button  class="btn btn-color-full submit">
+                                    <span>Add Comment</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_end(commentForm) }}
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+  {% block aside %}
+        <aside class="col-xs-12 col-sm-4 aside">
+            <div class="row">
+                <!-- Our authors -->
+                <div class="col-xs-12 i">
+                    <div class="box ourAuthorsBox">
+                        <h2>Our Authors</h2>
+
+                        <div class="c">
+                            <div>
+                                <div class="i">
+                                    <div class="name">Jane Doe</div>
+                                    <p class="info">Food specialist, recipe nerd and I love to cook.</p>
+                                </div>
+                            </div>
+                            <div class="btns">
+                                <a href="page-about-us.html" title="#" class="btn btn-color-full"><span>Message</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 i">
+                    <div class="box articleMediaList">
+                        <h2>Other Post of this Author</h2>
+                            {#Todo faire une requete  pour recuperer tous les posts d'un author #}
+                        <div class="articlesFilter clearfix js-tabs" role="tablist"></div>
+                        <div class="tab-content bordered"></div>
+
+                    </div>
+                </div>
+            </div>
+        </aside>
+
 
     {% endblock %}
