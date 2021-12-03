@@ -34,11 +34,10 @@
                     <h3 class="title">{{ postDetail.title }}</h3>
                     <div class="info">
                         <div>
-                            <span class="date">March 22, <span data-current-year></span></span>
+                            <span class="date">{{ postDetail.createdat | date("m/d/Y") }} <span data-current-year></span></span>
                         </div>
-                        <div>by <a href="#" title="#">Themees</a></div>
-                        <div>in <a href="#" title="#">Music</a></div>
-                        <div>1 min read</div>
+                        <div>by <a href="#" title="#">{{ postDetail.author.firstname ~" " ~ postDetail.author.lastname }}</a></div>
+                        <div>in <a href="#" title="#">{{ postDetail.category.name}}</a></div>
                     </div>
                     <div class="rte js-imagelightbox">
                         <p class="drop-cap-1">
@@ -87,7 +86,16 @@
                     <h2>Comments</h2>
                     <div>
                         <div class="col-xs-12 col-sm-4 i">
-                            {{  form_widget(commentForm) }}
+                            {{  form_widget(commentForm.nickname,{'attr':
+                                {
+                                    'placeholder':'pseudo...',
+                                    'class':'input'
+                                }
+                            })
+                            }}
+                        </div>
+                        <div class="col-xs-12 col-sm-4 i">
+                            {{  form_widget(commentForm.content,{'attr':{'placeholder':'commentaire...','class':'input'}}) }}
                         </div>
                         <div class="col-xs-12">
                             <div class="btns">
@@ -102,19 +110,21 @@
             </div>
         </section>
     {% endblock %}
+
+
   {% block aside %}
         <aside class="col-xs-12 col-sm-4 aside">
             <div class="row">
                 <!-- Our authors -->
                 <div class="col-xs-12 i">
                     <div class="box ourAuthorsBox">
-                        <h2>Our Authors</h2>
+                        <h2>Our Author</h2>
 
                         <div class="c">
                             <div>
                                 <div class="i">
-                                    <div class="name">Jane Doe</div>
-                                    <p class="info">Food specialist, recipe nerd and I love to cook.</p>
+                                    <div class="name">{{ postDetail.author.firstname ~" "~postDetail.author.lastname }}</div>
+                                    <p class="info">{{ postDetail.author.description }}</p>
                                 </div>
                             </div>
                             <div class="btns">
@@ -125,10 +135,17 @@
                 </div>
 
                 <div class="col-xs-12 i">
-                    <div class="box articleMediaList">
+                    <div class="box categories">
                         <h2>Other Post of this Author</h2>
-                            {#Todo faire une requete  pour recuperer tous les posts d'un author #}
-                        <div class="articlesFilter clearfix js-tabs" role="tablist"></div>
+                        <div class="c">
+                            <div class="i">
+                            {% for p in othersPostAuthor %}
+                                <a href="{{path('post_detail',{'id': p.id, 'author': p.author}) }}">
+                                    <div><br>{{ p.title | upper}}</div>
+                                </a>
+                            {% endfor %}
+                            </div>
+                        </div>
                         <div class="tab-content bordered"></div>
 
                     </div>

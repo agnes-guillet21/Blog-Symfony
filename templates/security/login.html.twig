@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
@@ -13,42 +12,61 @@
             You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-    <div class="box">
-        <article class="article articleDetail">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputUsername">Email</label>
-        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
-        <label for="inputPassword">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <div class="page-sign-in-out">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2 i">
+                    <div class="box signInOutWrap signin">
+                        <h2>Sign in</h2>
 
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-        >
-            <button class="btn btn-color-full submit">
-                <span>Sign in </span>
-            </button>
-            <button class="btn btn-color-full submit">
-                <span><a href="{{ path('app_register') }}">Register</a> </span>
-            </button>
-        </article>
-    </div>
+                        <div class="c">
+                            <form data-parsley-validate>
+                                <div class="row">
+                                    <div class="col-xs-12 user">
+                                        <i class="fa fa-user icon"></i>
+                                        <input type="text" name="username" placeholder="Username / Email" class="input" required data-parsley-error-message="Please enter username / email">
+                                    </div>
+                                    <div class="col-xs-12 password">
+                                        <i class="fa fa-lock icon"></i>
+                                        <input type="password" name="password" placeholder="Password" class="input">
+                                    </div>
+
+                                    <input type="hidden" name="_csrf_token"
+                                           value="{{ csrf_token('authenticate') }}"
+                                    >
+                                    {# <div class="col-xs-6 col-sm-12 col-md-7">
 
 
+                                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                                    See https://symfony.com/doc/current/security/remember_me.html
 
+                                    <div class="checkbox mb-3">
+                                        <label>
+                                            <input type="checkbox" name="_remember_me">
+                                              <span>Remember me</span>
+                                        </label>
+                                    </div>
 
+                                </div>#}
+                                    <div class="col-xs-6 col-sm-12 col-md-5 text-right signInBtn">
+                                        <button class="btn btn-color-full" type="submit"><span>Sign in</span></button>
+                                    </div>
+                                    <div class="col-xs-12">
 
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    #}
-
-
+    </div>
 </form>
-{% endblock %}
+    {% endblock %}
+
+
+
+
+
+

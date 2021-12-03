@@ -3,13 +3,10 @@
 namespace App\Controller;
 
 
-use App\Entity\Category;
 use App\Entity\Comment;
-
 use App\Entity\Post;
 use App\Form\AddCommentsType;
 use App\Repository\PostRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,11 +18,11 @@ class PostController extends AbstractController
 {
     /**
      *
-     * @Route(path="/detail/{id}", requirements={"id"="\d+"}, name="/detail",methods={"GET","POST"}, defaults={1})
+     * @Route(path="/detail/{id}", requirements={"id"="\d+"}, name="_detail",methods={"GET","POST"}, defaults={1})
      */
-    public function getDetailPost( PostRepository $postRepository,EntityManagerInterface $entityManager ,int $id,Post $post, Request $request, Category $category){
+    public function getDetailPost( PostRepository $postRepository,EntityManagerInterface $entityManager ,int $id,Post $post, Request $request){
         $postDetail = $postRepository->find($id);
-
+        $othersPostSimilaryAuthor = $postRepository->findAllSimilaryAuthor($postDetail->getAuthor()->getId(),$id);//respectee l ordre
         //verifications:
         if (is_null($postDetail)){
             throw $this->createNotFoundException();
@@ -58,14 +55,16 @@ class PostController extends AbstractController
             $entityManager->flush();
             dump($comment);
             $this->addFlash('succes','Commentaire ajouté!');
-            return $this->redirectToRoute('post/detail', ['id'=>$post->getId()]);
+            return $this->redirectToRoute('post_detail', ['id'=>$post->getId()]);
         }
 
             // si on ne rentre pas ds le if on redirige
         return $this->render('post/detail_post.html.twig',
             [
                 "postDetail" => $postDetail,
-                "commentForm" => $commentForm->createView()
+                "commentForm" => $commentForm->createView(),
+                "othersPostAuthor" => $othersPostSimilaryAuthor
+
             ]);
 
 

@@ -91,12 +91,13 @@
                     <div class="info">
                         <div> {{ listPost.author.firstname}} {{ listPost.author.lastname}} </div>
                         <div> {{ listPost.category.name }}</div>
+                        <div> {{ listPost.createdat | date("m/d/Y") }}</div>
                     </div>
                     <p>
                         {{ listPost.content | slice(0, 150)}}[..]
                     </p>
                     <div class="btns text-center">
-                        <a class="btn btn-primary" href="{{path('post/detail',{'id': listPost.id}) }}">
+                        <a class="btn btn-primary" href="{{path('post_detail',{'id': listPost.id}) }}">
                             <span>
                                 En lire Plus
                             </span>
@@ -163,35 +164,40 @@
             <div class="col-xs-12 i">
                 <div class="box categories">
                     <h2>Categories</h2>
-
+                    <br>
+                    {% for listCategory in listCategories %}
                     <div class="c">
                         <div class="i">
                             <a href="page-category.html" title="#" class="clearfix">
-                                <span class="title">Creative</span>
-                                <span class="count">(68)</span>
+                                <span class="title">{{ listCategory.name }}</span>
+                                <span class="count">{{ listCategory | length }}</span>
                             </a>
                         </div>
                     </div>
-
+                    {% endfor %}
+                    {#        TODO  faire la pages/methodes pour afficher toutes les categories   #}
                     <div class="btns text-center">
                         <a href="page-category.html" title="#" class="btn"><span>All categories</span></a>
                     </div>
                 </div>
             </div>
-
+            <!--Author -->
+            {#        TODO  faire les pages/methodes pour afficher 1 page detail de lauthor    #}
             <div class="col-xs-12 i">
-                <div class="box authors">
+                <div class="box archives">
                     <h2>Authors</h2>
-
+                    <br>
+                    {% for listAuthor in listAuthors %}
                     <div class="c">
                         <div class="i">
-                            <a href="page-category.html" title="#" class="clearfix">
-                                <span class="title">author </span>
-                                <span class="count">(68)</span>
+                            <a href="page-author.html" title="#" class="clearfix">
+                                <span class="title">{{ listAuthor.firstName ~ ' '~listAuthor.lastName }}</span>
                             </a>
                         </div>
                     </div>
-
+                    {% endfor %}
+                    <br>
+                    {#        TODO  faire la pages/methodes pour afficher tous les authors    #}
                     <div class="btns text-center">
                         <a href="page-category.html" title="#" class="btn"><span>All authors</span></a>
                     </div>
