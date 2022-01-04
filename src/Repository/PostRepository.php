@@ -31,10 +31,20 @@ class PostRepository extends ServiceEntityRepository
             ->setParameter('author', $idAuthor) //parametre passé en argument
             ->andWhere('p.id!= :idPost')
             ->setParameter('idPost' , $idPost)
-
             ->getQuery()//execution
             ->getResult()//donne le resultat
         ;
+    }
+    /*
+ * For admin pages
+ * Count number of post created
+ */
+    public function countPostsCreated()
+    {
+        return $this->createQueryBuilder('p')
+            ->select('p.id')
+            ->getQuery()
+            ->getResult();
     }
 
 

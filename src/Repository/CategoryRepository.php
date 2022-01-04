@@ -19,21 +19,22 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
-    public function getAll(){
+    public function getAll()
+    {
         $req= $this->createQueryBuilder('category');
         $req->where('author.id > 0');
         return $req->getQuery()->getResult();
     }
 
     /*
-    public function findOneBySomeField($value): ?Category
+     * For admin pages
+     * Count number of categories created
+     */
+    public function countCategoriesCreated()
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        ->select('c.id')
+        ->getQuery()
+        ->getResult();
     }
-    */
 }

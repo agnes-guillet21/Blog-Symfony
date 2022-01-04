@@ -1,20 +1,48 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Hello PostAdminController!{% endblock %}
+{% block title %}Post Management{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="example-wrapper">
+        <div class=" d-flex justify-content-end m-4">
+            <button  type="button" class="return btn btn-primary"><a class="text-light" href="{{ path('admin_home') }}">Dashboard</a></button>
+        </div>
+    </div>
+    <div class="example-wrapper">
+        <div class="card shadow mb-4">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Opérations</th>
+                        </tr>
+                        </thead>
+                        <tbody>{% for post in posts %}
+                        <tr>
+                            <td>{{post.title  }}</td>
+                                <td>{{post.author.firstname ~' '~ post.author.lastname  }}</td>
+                                <td>{{post.category.name  }}</td>
+                            <td>
+                                <button type="button" class="update btn btn-warning"><a class="text-light" href="edit_post.php?idPost=<?=intval($posts['id']);?>">modifier</a></button>
+                                <button  type="button" class="delete btn  btn-danger"><a class="text-light" href="delete_post.php">supprimer</a></button>
+                            </td>
+                        </tr>{% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="example-wrapper">
+        <div class=" d-flex justify-content-between m-4">
+            <button type="button" class="create btn btn-success"><a class="text-light" href="{{ path('post_admin_add') }}">Create Post</a></button>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/Blog/src/Controller/PostAdminController.php'|file_link(0) }}">src/Controller/PostAdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/Blog/templates/post_admin/index.html.twig'|file_link(0) }}">templates/post_admin/index.html.twig</a></code></li>
-    </ul>
-</div>
+        </div>
+    </div>
+
 {% endblock %}

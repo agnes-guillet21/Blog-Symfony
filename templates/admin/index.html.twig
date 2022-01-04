@@ -1,11 +1,73 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}   Dashboard{% endblock %}
 
 {% block body %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-<p>Tagada Tsoin Tsoin</p>
+    <div class="example-wrapper">
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Number of Post</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+
+                                    <p>{{ totalPost}} </p>
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold">
+                                    <button  type="button"  class="btn btn-outline-light text-white"><a href="{{ path('post_admin_management') }}"> <span>Post Management </span></a></button>
+                                    {#                  TODO faire la redicrection vers une page post management              #}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Number of Author</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <p>{{ totalAuthor}} </p>
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold">
+                                    <button  type="button"  class="btn btn-outline-light text-white"><a href=""> <span>Author Management </span></a></button>
+                                    {#                  TODO faire la redicrection vers une page author management              #}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Number of Category</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <p>{{ totalCategory}} </p>
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold">
+                                    <button  type="button"  class="btn btn-outline-light text-white"><a href=""> <span>Category Management </span></a></button>
+                                    {#                  TODO faire la redicrection vers une page category management              #}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+    </div>
 </div>
 {% endblock %}

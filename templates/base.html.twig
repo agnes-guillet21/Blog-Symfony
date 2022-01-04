@@ -63,8 +63,12 @@
                     <!-- Main navigation -->
                     <ul class="nav navbar-nav navigation">
                         <li class="hoverExtend active"><a href="{{path('home')}}" title="home">Home</a></li>
+                        {% if is_granted('Role_Admin') %}
+                        <li class="hoverExtend active"><a href="{{path('home')}}" title="home">Dashboard Admin</a></li>
+                        {% endif %}
                         <li class="hoverExtend"><a href="page-about-me.html" title="#">About Me</a></li>
                         <li class="hoverExtend"><a href="page-contact-me.html" title="#">Contact</a></li>
+
                     </ul>
 
                     <!-- Search, Share, Language -->
@@ -90,6 +94,9 @@
                         </li>
                         <li>
                             <a href="{{ path('app_login') }}" title="login" class="dropdown-toggle" role="button" aria-expanded="false">Login</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_register') }}" title="create account" class="dropdown-toggle" role="button" aria-expanded="false">Register</a>
                         </li>
                     </ul>
                 </nav>

@@ -29,35 +29,25 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
-
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html.twig">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
+            {#               Todo mettre le nom du User de la session#}
                 <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
-
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html.twig">
+                <a class="nav-link" href="{{ path('admin_home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-
-
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
@@ -70,23 +60,21 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Category</a>
-                        <a class="collapse-item" href="register.html">Author</a>
+                        <a class="collapse-item active" href="{{ path('admin_home') }}">DashBoard</a>
+                        <a class="collapse-item" href="login.html">Post Management</a>
+                        <a class="collapse-item" href="login.html">Category Management</a>
+                        <a class="collapse-item" href="register.html">Author Management</a>
                         <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item active" href="index_admin.html.twig">Admin Home</a>
+
                     </div>
                 </div>
             </li>
-
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -148,10 +136,12 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
+                {#                     TODO partie sur les infos du USer a faire => recuperer le user en cours/modifier son profil     #}
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ app.user.email}}</span>
 
                             </a>
                             <!-- Dropdown - User Information -->
@@ -174,19 +164,19 @@
                         </li>
 
                     </ul>
-
                 </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
                 <div class="container-fluid">
+                <!-- End of Topbar -->
+                    <h1 class="text-center m-4">
+                        {% block title %}
+                        {% endblock %}
+                    </h1>
+
+
+                    <!-- Block Body -->
                     {% block body %}
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
                     {% endblock %}
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 
@@ -199,7 +189,6 @@
                 </div>
             </footer>
             <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
 
