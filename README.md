@@ -5,5 +5,5 @@
 Projet de Blog en Symfony en autonomie 
 
 - Utilisation et intégration de templates
-- Back Office
+- Creation d'un Back Office
 - CRUD 
