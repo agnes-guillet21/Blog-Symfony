@@ -43,7 +43,7 @@ class PostAdminController extends AbstractController
 
              return $this->redirectToRoute('post_admin_management'); // rester sur la meme
          }
-        return $this->render('post_admin/addPost.html.twig', [
+        return $this->render('post_admin/add_post.html.twig', [
 
         ]);
     }

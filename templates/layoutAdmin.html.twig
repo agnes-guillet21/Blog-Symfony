@@ -35,16 +35,10 @@
                     <i class="fas fa-laugh-wink"></i>
                 </div>
             {#               Todo mettre le nom du User de la session#}
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3"><p>Welcome {# {{ app.user.email}}   #}<sup>2</sup></p></div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('admin_home') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -61,9 +55,11 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item active" href="{{ path('admin_home') }}">DashBoard</a>
-                        <a class="collapse-item" href="login.html">Post Management</a>
-                        <a class="collapse-item" href="login.html">Category Management</a>
-                        <a class="collapse-item" href="register.html">Author Management</a>
+                        <a class="collapse-item" href="{{ path('home') }}">Blog</a>
+                        <a class="collapse-item" href="{#{{ path('admin_post') }}#}">Post Management</a>
+                        <a class="collapse-item" href="{#{{ path('admin_post') }}#}">Post Management</a>
+                        <a class="collapse-item" href="{#{{ path('admin_post') }}#}">Category Management</a>
+                        <a class="collapse-item" href="{#{{ path('admin_post') }}#}">Author Management</a>
                         <a class="collapse-item" href="404.html">404 Page</a>
 
                     </div>
@@ -150,10 +146,6 @@
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
