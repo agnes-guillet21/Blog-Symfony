@@ -62,9 +62,9 @@
                 <nav id="navbar" class="collapse navbar-collapse">
                     <!-- Main navigation -->
                     <ul class="nav navbar-nav navigation">
-                        <li class="hoverExtend active"><a href="{{path('home')}}" title="home">Home</a></li>
-                        {% if is_granted('Role_Admin') %}
-                        <li class="hoverExtend active"><a href="{{path('home')}}" title="home">Dashboard Admin</a></li>
+                        <li class="hoverExtend"><a href="{{path('home')}}" title="home">Home</a></li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <li class="hoverExtend"><a href="{{path('home')}}" title="home">Dashboard Admin</a></li>
                         {% endif %}
                         <li class="hoverExtend"><a href="page-about-me.html" title="#">About Me</a></li>
                         <li class="hoverExtend"><a href="page-contact-me.html" title="#">Contact</a></li>
@@ -76,24 +76,8 @@
                         <li>
                             <a href="#" title="#" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search"></i></a>
                         </li>
-                        <li class="dropdown onHover">
-                            <a href="#" title="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <i class="fa fa-share-alt"></i>
-                            </a>
-                            <!-- Social dropdown -->
-                            <div class="dropdown-menu socials" role="menu">
-                                <ul>
-                                    <li><a href="#" title="#" class="i"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" title="#" class="i"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#" title="#" class="i"><i class="fa fa-envelope"></i></a></li>
-                                </ul>
-                            </div>
-                        </li>
                         <li>
-                            <a href="#" title="#" class="dropdown-toggle"  role="button" aria-expanded="false">EN</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('app_login') }}" title="login" class="dropdown-toggle" role="button" aria-expanded="false">Login</a>
+                            <a href="{{ path('app_login') }}" title="login" class="hoverExtend" role="button" aria-expanded="false">Login</a>
                         </li>
                         <li>
                             <a href="{{ path('app_register') }}" title="create account" class="dropdown-toggle" role="button" aria-expanded="false">Register</a>

@@ -19,3 +19,6 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+
+### admin : admin@admin.com + password
