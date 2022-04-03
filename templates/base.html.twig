@@ -9,6 +9,7 @@
     <link rel="icon" href="{{ asset('img/logo_A.jpg') }}">
 
     <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/font-awesome/css/font-awesome.min.css') }}">
@@ -17,14 +18,18 @@
     <link rel="stylesheet" href="{{ asset('assets/css/pace-theme-center-simple.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
 
+
     <!-- Modernizr -->
     <script src="{{ asset('assets/js/modernizr-2.8.3.min.js') }}"></script>
 
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700,100,400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,100,800,900,400,200,300' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -36,12 +41,20 @@
     </div>
 </div>
 <!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Facebook -->
 <div id="fb-root"></div>
-<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="pageWrap">
     <!-- Header -->
@@ -51,7 +64,8 @@
             <div class="container">
                 <!-- Mobile navbar toggler -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -62,9 +76,9 @@
                 <nav id="navbar" class="collapse navbar-collapse">
                     <!-- Main navigation -->
                     <ul class="nav navbar-nav navigation">
-                        <li class="hoverExtend"><a href="{{path('home')}}" title="home">Home</a></li>
+                        <li class="hoverExtend"><a href="{{ path('home') }}" title="home">Home</a></li>
                         {% if is_granted('ROLE_ADMIN') %}
-                        <li class="hoverExtend"><a href="{{path('home')}}" title="home">Dashboard Admin</a></li>
+                            <li class="hoverExtend"><a href="{{ path('home') }}" title="home">Dashboard Admin</a></li>
                         {% endif %}
                         <li class="hoverExtend"><a href="page-about-me.html" title="#">About Me</a></li>
                         <li class="hoverExtend"><a href="page-contact-me.html" title="#">Contact</a></li>
@@ -74,13 +88,16 @@
                     <!-- Search, Share, Language -->
                     <ul class="nav navbar-nav navigation misc">
                         <li>
-                            <a href="#" title="#" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search"></i></a>
+                            <a href="#" title="#" data-toggle="modal" data-target="#searchModal"><i
+                                        class="fa fa-search"></i></a>
                         </li>
                         <li>
-                            <a href="{{ path('app_login') }}" title="login" class="hoverExtend" role="button" aria-expanded="false">Login</a>
+                            <a href="{{ path('app_login') }}" title="login" class="hoverExtend" role="button"
+                               aria-expanded="false">Login</a>
                         </li>
                         <li>
-                            <a href="{{ path('app_register') }}" title="create account" class="dropdown-toggle" role="button" aria-expanded="false">Register</a>
+                            <a href="{{ path('app_register') }}" title="create account" class="dropdown-toggle"
+                               role="button" aria-expanded="false">Register</a>
                         </li>
                     </ul>
                 </nav>
@@ -91,14 +108,15 @@
             <div class="container">
                 <h1>
                     <a href="index.html.twig" title="#">
-                        <img src="{{ asset('img/logo_A.jpg') }}" alt="#" width="208" height="108" class="img-responsive">
+                        <img src="{{ asset('img/logo_A.jpg') }}" alt="#" width="208" height="108"
+                             class="img-responsive">
                         <strong>Blogee</strong>
                     </a>
                 </h1>
             </div>
         </div>
         <!-- Categories navigation -->
-        {% block navigation  %}
+        {% block navigation %}
         {% endblock %}
     </header>
     <!-- fin du header -->
@@ -123,17 +141,12 @@
             <!-- Listings -->
             <div class="col-xs-12 col-sm-8">
                 <div class="articlesListing">
-
-
                     {% block body %}
                     {% endblock %}
-
                 </div>
             </div>
-
-            {% block aside%}
+            {% block aside %}
             {% endblock %}
-
         </div>
     </div>
 
@@ -143,22 +156,26 @@
                 <div class="row">
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-1.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-1.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-2.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-2.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-3.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-3.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-4.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-4.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                 </div>
@@ -167,21 +184,25 @@
                 <div class="row">
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-5.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-5.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-6.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-6.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                     <div class="col-xs-12 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('img/transparent.png') }}" alt="#" width="382" height="185" class="img-responsive">
+                            <img src="{{ asset('img/transparent.png') }}" alt="#" width="382" height="185"
+                                 class="img-responsive">
 
                             <div class="c gray">
                                 <div class="name">@Agnes</div>
-                                <p class="js-shortener" data-maxheight="45">Je ne suis pas encore allée partout, mais c'est sur ma liste. </p>
+                                <p class="js-shortener" data-maxheight="45">Je ne suis pas encore allée partout, mais
+                                    c'est sur ma liste. </p>
                             </div>
                         </a>
                     </div>
@@ -191,47 +212,27 @@
                 <div class="row">
                     <div class="col-xs-12 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('img/transparent.png') }}" alt="#" width="382" height="185" class="img-responsive">
+                            <img src="{{ asset('img/transparent.png') }}" alt="#" width="382" height="185"
+                                 class="img-responsive">
 
                             <div class="c gray">
                                 <div class="name">@Agnès</div>
-                                <p class="js-shortener" data-maxheight="45">"Une fois par an, visitez un lieu où vous n’êtes jamais allé auparavant."</p>
+                                <p class="js-shortener" data-maxheight="45">"Une fois par an, visitez un lieu où vous
+                                    n’êtes jamais allé auparavant."</p>
 
                             </div>
                         </a>
                     </div>
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-7.jp') }}g" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-7.jp') }}g" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-8.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-lg-15 items visible-lg">
-                <div class="row">
-                    <div class="col-xs-6 i">
-                        <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-9.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
-                        </a>
-                    </div>
-                    <div class="col-xs-6 i">
-                        <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-10.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
-                        </a>
-                    </div>
-                    <div class="col-xs-6 i">
-                        <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-11.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
-                        </a>
-                    </div>
-                    <div class="col-xs-6 i">
-                        <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-12.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-8.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                 </div>
@@ -240,21 +241,53 @@
                 <div class="row">
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-13.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-9.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                     <div class="col-xs-6 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('tmp/185x185-14.jpg') }}" alt="#" width="185" height="185" class="img-responsive">
+                            <img src="{{ asset('tmp/185x185-10.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 i">
+                        <a href="post-detail-standard.html" title="#">
+                            <img src="{{ asset('tmp/185x185-11.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 i">
+                        <a href="post-detail-standard.html" title="#">
+                            <img src="{{ asset('tmp/185x185-12.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-lg-15 items visible-lg">
+                <div class="row">
+                    <div class="col-xs-6 i">
+                        <a href="post-detail-standard.html" title="#">
+                            <img src="{{ asset('tmp/185x185-13.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 i">
+                        <a href="post-detail-standard.html" title="#">
+                            <img src="{{ asset('tmp/185x185-14.jpg') }}" alt="#" width="185" height="185"
+                                 class="img-responsive">
                         </a>
                     </div>
                     <div class="col-xs-12 i">
                         <a href="post-detail-standard.html" title="#">
-                            <img src="{{ asset('img/transparent.png') }}" alt="#" width="382" height="185" class="img-responsive">
+                            <img src="{{ asset('img/transparent.png') }}" alt="#" width="382" height="185"
+                                 class="img-responsive">
 
                             <div class="c gray">
                                 <div class="name">@Agnès</div>
-                                <p class="js-shortener" data-maxheight="45">N'attends pas l'instant parfait, saisis l'instant et rends le parfait..</p>
+                                <p class="js-shortener" data-maxheight="45">N'attends pas l'instant parfait, saisis
+                                    l'instant et rends le parfait..</p>
                             </div>
                         </a>
                     </div>
@@ -268,7 +301,8 @@
             <div class="container">
                 <h1>
                     <a href="index.html.twig" title="#">
-                        <img src="{{ asset('img/logo_A.jpg') }}" alt="#" width="100" height="108" class="img-responsive">
+                        <img src="{{ asset('img/logo_A.jpg') }}" alt="#" width="100" height="108"
+                             class="img-responsive">
 
                     </a>
                 </h1>
@@ -284,7 +318,8 @@
 </div>
 
 <!-- Search modal -->
-<div class="modal fade in" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+<div class="modal fade in" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -323,50 +358,57 @@
 <!-- Calendar events -->
 <script>
     Calendar.events = [
-        { date: moment().format(new Date().getFullYear() + '-03-07'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-03-08'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-04-09'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-04-23'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-04-10'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-05-14'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-05-19'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-05-28'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-06-04'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-06-09'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-06-14'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-07-17'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-07-21'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-07-26'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-08-28'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-08-04'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-08-09'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-08-14'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-09-17'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-09-21'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-09-26'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-10-28'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-10-04'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-10-09'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-10-14'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-11-17'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-11-21'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-11-26'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-11-28'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-12-04'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-12-09'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-12-14'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-01-17'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-01-21'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-02-26'), url: '#' },
-        { date: moment().format(new Date().getFullYear() + '-02-28'), url: '#' },
+        {date: moment().format(new Date().getFullYear() + '-03-07'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-03-08'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-04-09'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-04-23'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-04-10'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-05-14'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-05-19'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-05-28'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-06-04'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-06-09'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-06-14'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-07-17'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-07-21'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-07-26'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-08-28'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-08-04'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-08-09'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-08-14'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-09-17'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-09-21'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-09-26'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-10-28'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-10-04'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-10-09'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-10-14'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-11-17'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-11-21'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-11-26'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-11-28'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-12-04'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-12-09'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-12-14'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-01-17'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-01-21'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-02-26'), url: '#'},
+        {date: moment().format(new Date().getFullYear() + '-02-28'), url: '#'},
     ];
 </script>
 
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-80760662-1', 'auto');
     ga('send', 'pageview');
@@ -374,7 +416,7 @@
 
 <!-- Demo -->
 <script>
-    $('[data-current-year]').each(function() {
+    $('[data-current-year]').each(function () {
         $(this).text(new Date().getFullYear());
     });
 </script>

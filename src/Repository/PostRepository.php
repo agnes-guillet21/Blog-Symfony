@@ -20,9 +20,9 @@ class PostRepository extends ServiceEntityRepository
     }
 
 
-    // /**
-    //  * @return Post[] Returns an array of Post objects
-    //  */
+    /**
+     * @return Post[] Returns an array of Post objects
+     */
 
     public function findAllSimilaryAuthor($idAuthor, $idPost)
     {
@@ -35,10 +35,11 @@ class PostRepository extends ServiceEntityRepository
             ->getResult()//donne le resultat
         ;
     }
-    /*
- * For admin pages
- * Count number of post created
- */
+
+    /**
+    * For admin pages
+    * Count number of post created
+    */
     public function countPostsCreated()
     {
         return $this->createQueryBuilder('p')
@@ -47,6 +48,19 @@ class PostRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * Creation Function for the modal search
+     *I create here because i want to search :author, category , and post
+     */
+
+    public function searchWordModal(string $keyword){
+        $querybuilder = $this->createQueryBuilder('p');
+        $querybuilder->andWhere('p.authorLIKE :kw')->setParameter('kw','%'.$keyword.'%');
+        $querybuilder->andWhere('p.post :kw')->setParameter('kw','%'.$keyword.'%');
+        $querybuilder->andWhere('p.category :kw')->setParameter('kw','%'.$keyword.'%');
+        $querybuilder->setMaxResults(40);
+        return $querybuilder->getQuery()->getResult();
+    }
 
     /*
     public function findOneBySomeField($value): ?Post
